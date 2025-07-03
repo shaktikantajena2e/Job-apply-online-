@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Job Application</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 350px;
+    }
+
+    .form-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Online Job Application</h2>
+    <form onsubmit="sendWhatsApp(); return false;">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="tel" id="mobile" placeholder="Mobile Number" required />
+      <input type="number" id="age" placeholder="Your Age" required />
+      <button type="submit">Apply Now via WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    function sendWhatsApp() {
+      var name = document.getElementById("name").value;
+      var mobile = document.getElementById("mobile").value;
+      var age = document.getElementById("age").value;
+
+      var message = `New Job Application%0AName: ${name}%0AMobile: ${mobile}%0AAge: ${age}`;
+      var phoneNumber = "917735656457";
+
+      var url = `https://wa.me/${phoneNumber}?text=${message}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
